@@ -1,7 +1,13 @@
+#!/usr/bin/env node
 'use strict';
 const http = require('http');
 const prom = require('prom-client');
 const CO2Monitor = require('node-co2-monitor');
+
+const argv = require('yargs').argv;
+const settings = {
+    port: argv.port || 9101
+};
 
 // Initialize prometheus metrics.
 const _co2Gauge = new prom.Gauge({
@@ -45,8 +51,6 @@ monitor.on('error', (err) => {
     _err = err;
 });
 
-const port = 9101;
-
 // Start Server.
 const server = http.createServer((req, res) => {
     // Only allowed to poll prometheus metrics.
@@ -60,7 +64,7 @@ const server = http.createServer((req, res) => {
     }
     res.setHeader('Content-Type', register.contentType);
     return res.end(register.metrics());
-}).listen(port);
+}).listen(settings.port);
 server.setTimeout(30000);
 
 // Graceful shutdown.
