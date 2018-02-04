@@ -21,7 +21,11 @@ register.registerMetric(_co2Gauge);
 
 // Setup CO2 Monitor.
 const monitor = new CO2Monitor();
-monitor.connect(() => {
+monitor.connect((err) => {
+    if (err) {
+        console.error(err.stack);
+        return process.exit(1);
+    }
     console.log('CO2 Monitor connected.');
     // Read CO2 monitor metrics intervally.
     setInterval(() => {
@@ -41,7 +45,6 @@ const server = http.createServer((req, res) => {
         res.writeHead(404, { 'Content-Type': 'text/html' });
         return res.end('Not Found.');
     }
-    console.log(_co2Gauge);
     res.setHeader('Content-Type', register.contentType);
     return res.end(register.metrics());
 }).listen(port);

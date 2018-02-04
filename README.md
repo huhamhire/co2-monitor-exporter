@@ -12,3 +12,8 @@ Prometheus exporter for CO2 concentration and indoor temperature from TFA Dostma
 ```bash
 npm install co2-monitor-exporter -g
 ```
+
+
+## License
+
+MIT
