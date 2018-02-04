@@ -36,6 +36,10 @@ Or starting with PM2 as a service.
 pm2 start `which co2-exporter` [-- --port <port>]
 ```
 
+After the exporter is started, prometheus server would be able to retrieve metric data from the exporter.
+
+![Grafana](https://huhamhire.github.io/co2-monitor-exporter/images/grafana.png)
+
 
 ## Metrics
 
