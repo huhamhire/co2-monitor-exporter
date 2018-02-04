@@ -13,7 +13,7 @@
     "url": ""
   },
   "bin": {
-    "co2_exporter": "./exporter.js"
+    "co2-exporter": "./exporter.js"
   },
   "dependencies": {
     "node-co2-monitor": "file:///C:\\Work\\Projects\\node-co2-monitor",

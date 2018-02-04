@@ -28,12 +28,12 @@ npm install co2-monitor-exporter -g
 
 ## Usage
 ```bash
-co2-monitor [--port <port>]
+co2-exporter [--port <port>]
 ```
 
 Or starting with PM2 as a service.
 ```bash
-pm2 start `which co2-monitor` [-- --port <port>]
+pm2 start `which co2-exporter` [-- --port <port>]
 ```
 
 
