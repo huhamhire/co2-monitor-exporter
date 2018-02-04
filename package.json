@@ -1,10 +1,19 @@
 {
   "name": "co2-monitor-exporter",
-  "description": "",
+  "description": "Prometheus exporter for CO2 concentration and indoor temperature from TFA Dostmann AirCO2NTROL Mini.",
   "license": "MIT",
+  "version": "0.1.0-beta",
+  "author": {
+    "name": "Hamhire Hu",
+    "email": "me@huhamhire.com",
+    "url": "https://hamhire.com"
+  },
   "repository": {
     "type": "git",
     "url": ""
+  },
+  "bin": {
+    "co2_exporter": "./exporter.js"
   },
   "dependencies": {
     "node-co2-monitor": "0.1.0-beta",
@@ -12,5 +21,26 @@
   },
   "devDependencies": {
     "eslint": "^4.17.0"
-  }
+  },
+  "scripts": {
+    "eslint": "eslint ./"
+  },
+  "engines": {
+    "node": ">=6.0"
+  },
+  "os": [
+    "linux",
+    "win32",
+    "darwin"
+  ],
+  "keywords": [
+    "iot",
+    "backend",
+    "CO2",
+    "temperature",
+    "TFA-Dostman",
+    "co2-monitor",
+    "prometheus",
+    "exporter"
+  ]
 }
