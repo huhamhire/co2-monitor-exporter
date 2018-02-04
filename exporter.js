@@ -21,19 +21,28 @@ register.registerMetric(_co2Gauge);
 
 // Setup CO2 Monitor.
 const monitor = new CO2Monitor();
+
 monitor.connect((err) => {
     if (err) {
         console.error(err.stack);
         return process.exit(1);
     }
-    console.log('CO2 Monitor connected.');
-    // Read CO2 monitor metrics intervally.
-    setInterval(() => {
-        monitor.transfer(() => {
-            _tempGauge.set(monitor.temperature);
-            _co2Gauge.set(monitor.co2);
-        });
-    }, 5000);
+    monitor.transfer();
+});
+
+let _err;
+
+// Register update events.
+monitor.on('temp', (temperature) => {
+    _tempGauge.set(temperature);
+    _err = undefined;
+});
+monitor.on('co2', (co2) => {
+    _co2Gauge.set(co2);
+    _err = undefined;
+});
+monitor.on('error', (err) => {
+    _err = err;
 });
 
 const port = 9101;
@@ -44,6 +53,10 @@ const server = http.createServer((req, res) => {
     if (req.method !== 'GET' && req.url !== '/metrics') {
         res.writeHead(404, { 'Content-Type': 'text/html' });
         return res.end('Not Found.');
+    }
+    if (_err) {
+        res.writeHead(400, { 'Content-Type': 'text/html' });
+        return res.end('Device Error.');
     }
     res.setHeader('Content-Type', register.contentType);
     return res.end(register.metrics());
