@@ -1,0 +1,16 @@
+{
+  "name": "co2-monitor-exporter",
+  "description": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "node-co2-monitor": "0.1.0-beta",
+    "prom-client": "^10.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0"
+  }
+}
