@@ -4,6 +4,9 @@ Prometheus exporter for CO2 concentration and indoor temperature from TFA Dostma
 
 Based on [node-co2-monitor](https://github.com/huhamhire/node-co2-monitor).
 
+[![npm](https://img.shields.io/npm/v/co2-monitor-exporter.svg)](https://www.npmjs.com/package/co2-monitor-exporter)
+[![npm downloads](https://img.shields.io/npm/dm/co2-monitor-exporter.svg)](https://www.npmjs.com/package/co2-monitor-exporter)
+
 
 ## Contents
 
