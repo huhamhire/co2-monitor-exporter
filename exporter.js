@@ -4,7 +4,7 @@ const http = require('http');
 const prom = require('prom-client');
 const CO2Monitor = require('node-co2-monitor');
 
-const argv = require('yarg').argv;
+const argv = require('yargs').argv;
 const settings = {
     port: argv.port || 9101
 };
