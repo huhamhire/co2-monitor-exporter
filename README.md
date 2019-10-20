@@ -19,7 +19,7 @@ Based on [node-co2-monitor](https://github.com/huhamhire/node-co2-monitor).
 
 ## Supported Hardware
 
-* [TFA Dostmann AirCO2NTROL Mini - Monitor CO2 31.5006](https://www.amazon.de/dp/B00TH3OW4Q)
+* [TFA Dostmann AirCO2NTROL Mini - Monitor CO2 31.5006.02](https://www.amazon.de/dp/B00TH3OW4Q)
 
 
 ## Install
@@ -30,16 +30,17 @@ npm install co2-monitor-exporter -g
 
 
 ## Usage
+
 ```bash
-co2-exporter [--port <port>]
+co2-exporter [--port <port> --host <host>]
 ```
 
 Or starting with PM2 as a service.
 ```bash
-pm2 start `which co2-exporter` [-- --port <port>]
+pm2 start `which co2-exporter` [-- --port <port> --host <host>]
 ```
 
-After the exporter is started, prometheus server would be able to retrieve metric data from the exporter.
+By default the exporter will accept connections on `127.0.0.1:9091`. After the exporter is started, prometheus server would be able to retrieve metric data from the exporter.
 
 ![Grafana](https://huhamhire.github.io/co2-monitor-exporter/images/grafana.png)
 
