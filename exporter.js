@@ -6,7 +6,8 @@ const CO2Monitor = require('node-co2-monitor');
 
 const argv = require('yargs').argv;
 const settings = {
-    port: argv.port || 9101
+    port: argv.port || 9101,
+    host: argv.host || '127.0.0.1'
 };
 
 // Initialize prometheus metrics.
