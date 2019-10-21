@@ -2,7 +2,7 @@
   "name": "co2-monitor-exporter",
   "description": "Prometheus exporter for CO2 concentration and indoor temperature from TFA Dostmann AirCO2NTROL Mini.",
   "license": "MIT",
-  "version": "0.2.4-dev",
+  "version": "0.2.4",
   "author": {
     "name": "Hamhire Hu",
     "email": "me@huhamhire.com",
