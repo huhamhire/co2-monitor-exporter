@@ -40,7 +40,7 @@ Or starting with PM2 as a service.
 pm2 start `which co2-exporter` [-- --port <port> --host <host>]
 ```
 
-By default the exporter will accept connections on `127.0.0.1:9091`. After the exporter is started, prometheus server would be able to retrieve metric data from the exporter.
+By default the exporter will accept connections on `:::9101` (which means: Port 9101 on all IPv4 and IPv6 addresses). After the exporter is started, prometheus server would be able to retrieve metric data from the exporter (check manually: `http://<ip-address>:9101/metrics`).
 
 ![Grafana](https://huhamhire.github.io/co2-monitor-exporter/images/grafana.png)
 
